@@ -33,5 +33,5 @@ The following guides illustrate how to use some features concretely:
 * [Everything you need to know about spring boot](https://www.baeldung.com/spring-tutorial)
 
 ### Additional Tips
-Reach out your mentor and have fun coding!
+Reach out to your mentor and have fun coding!
 
