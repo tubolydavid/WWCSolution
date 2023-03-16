@@ -1,6 +1,6 @@
 # Getting Started
 
-#### This application has an entrypoint where the spring application execution starts and a service which consumes wise's sandbox APIs, 
+#### This application is to get you started with the coding workshop task to create a transfer with wise workflow consuming sandbox APIs.
 
 **Service has the following functionalities defined for your reference**
 * Create a quote for your transfer
