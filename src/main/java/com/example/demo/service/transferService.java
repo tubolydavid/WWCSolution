@@ -13,7 +13,7 @@ public class transferService {
     public Object generateToken(String basicAuth, String refreshToken) {
         return WebClient.builder().build().post()
                 .uri("https://api.sandbox.transferwise.tech/oauth/token")
-                .header(HttpHeaders.CONTENT_TYPE, "application/x-www-form-urlencoded")
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_FORM_URLENCODED_VALUE)
                 .header(HttpHeaders.AUTHORIZATION, String.format("Basic %s", basicAuth)) // include basic auth token here
                 .body(BodyInserters.fromFormData("grant_type", "refresh_token")
                         .with("refresh_token", refreshToken)) // include refresh token here
