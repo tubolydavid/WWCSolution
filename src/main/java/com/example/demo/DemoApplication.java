@@ -7,6 +7,9 @@ import com.example.demo.domain.SenderAccountDetails;
 import com.example.demo.domain.CreateQuoteRequest;
 import com.example.demo.domain.CreateSenderAcctRequest;
 import com.example.demo.service.transferService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -15,7 +18,7 @@ import java.util.Scanner;
 @SpringBootApplication
 public class DemoApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws JsonProcessingException {
 		SpringApplication.run(DemoApplication.class, args);
 
 		Scanner scanner = new Scanner(System.in);
@@ -27,6 +30,14 @@ public class DemoApplication {
 		if(response == null) {
 			System.out.println("Quote creation failed");
 		}
+
+		// Sample code to parse the response and get any field
+		ObjectMapper mapper = new ObjectMapper();
+		String json = mapper.writeValueAsString(response);
+		JsonNode jsonNode = mapper.readTree(json);
+		JsonNode idNode = jsonNode.get("id");
+		System.out.printf("Created quote id %s", idNode.textValue());
+
 
 		createSenderAcct(scanner, request.getSourceCurrency(), service);
 		createRecipient(scanner, request.getTargetCurrency(), service);
@@ -64,7 +75,6 @@ public class DemoApplication {
 		request.setDetails(details);
 
 		final var createSenderResponse = service.createSenderAcct(request);
-
 		System.out.println("SUCCESSFUL!");
 	}
 

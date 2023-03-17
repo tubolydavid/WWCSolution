@@ -5,10 +5,22 @@ import com.example.demo.domain.CreateRecipientRequest;
 import com.example.demo.domain.CreateSenderAcctRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+    import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 public class transferService {
+    public Object generateToken(String basicAuth, String refreshToken) {
+        return WebClient.builder().build().post()
+                .uri("https://api.sandbox.transferwise.tech/oauth/token")
+                .header(HttpHeaders.CONTENT_TYPE, "application/x-www-form-urlencoded")
+                .header(HttpHeaders.AUTHORIZATION, String.format("Basic %s", basicAuth)) // include basic auth token here
+                .body(BodyInserters.fromFormData("grant_type", "refresh_token")
+                        .with("refresh_token", refreshToken)) // include refresh token here
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve()
+                .bodyToMono(Object.class).block();
+    }
     public Object createQuote(CreateQuoteRequest request) {
         return WebClient.builder().build().post()
                 .uri("https://api.sandbox.transferwise.tech/v2/quotes")

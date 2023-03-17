@@ -13,7 +13,7 @@
 * Create a transfer
 
 ## Some useful info to get you through this
-- All the apis need authorisation, please get the accessToken and add it to your API
+- All the apis need authorisation, please add refresh token and authorisation header as instructed in `generateToken` and get the access token to use
 - In many steps you need input currency info, these are the valid currency codes you can use
   - GBP
   - USD
@@ -21,7 +21,7 @@
   - INR
   - SGD
   - JPY
-- Account numbers, you can a random long number 
+- Account numbers, you can use a random positive number (eg: 4000000000)
 - This java application uses lombok library to avoid boilerplate code like getter, setters and constructor
   - For more information you can check this [Lombok](https://www.baeldung.com/intro-to-project-lombok)
 - Many object have some default values defined to avoid getting everything from command line input, Make sure you change those appropriate to your input
