@@ -26,6 +26,10 @@
   - For more information you can check this [Lombok](https://www.baeldung.com/intro-to-project-lombok)
 - Many object have some default values defined to avoid getting everything from command line input, Make sure you change those appropriate to your input
 
+### To run your application locally
+- Keyboard shortcut is cmd + R
+- Use the Run option you see in nav bar in IntelliJ
+
 ### Additional Info
 The following guides illustrate how to use some features concretely:
 
