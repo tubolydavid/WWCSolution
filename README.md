@@ -4,7 +4,6 @@
 
 **Service has the following functionalities defined for your reference**
 * Create a quote for your transfer
-* Create your sender account
 * Create a recipient account
 
 **To achieve the objective of completing a transfer, you need to complete the following**
@@ -13,7 +12,7 @@
 * Create a transfer
 
 ## Some useful info to get you through this
-- All the apis need authorisation, please add refresh token and authorisation header as instructed in `generateToken` and get the access token to use
+- All the apis need authorisation, a token will be provided to you
 - In many steps you need input currency info, these are the valid currency codes you can use
   - GBP
   - USD
